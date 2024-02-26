@@ -7,18 +7,23 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
+  function handleLogin() {
     // Implement login functionality here
     console.log('Logging in with email:', email, 'and password:', password);
-  };
+  };  
 
   const handleForgotEmail = () => {
     Alert.alert('Forgot Email', 'Please contact support for assistance with your email.');
+    console.log('Forgot Email', 'Please contact support for assistance with your email.');
+
   };
 
   const handleForgotPassword = () => {
     Alert.alert('Forgot Password', 'Please check your email for instructions on resetting your password.');
+    console.log('Forgot Password', 'Please check your email for instructions on resetting your password.');
+
   };
+
 
   return (
     <View style={styles.container}>
