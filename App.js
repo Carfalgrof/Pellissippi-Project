@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     // Implement login functionality here
@@ -20,23 +22,34 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image
+        source={require('./assets/dog picture.png')}
+        style={styles.image}
+      />
       <Text style={styles.title}>Login to Project Chelsea</Text>
       <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#777"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="#777"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+        <View style={styles.inputWrapper}>
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            placeholderTextColor="#777"
+            value={email}
+            onChangeText={setEmail}
+          />
+        </View>
+        <View style={styles.inputWrapper}>
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            placeholderTextColor="#777"
+            secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
+          />
+          <TouchableOpacity style={styles.eyeIconContainer} onPress={() => setShowPassword(!showPassword)}>
+            <FontAwesome name={showPassword ? 'eye-slash' : 'eye'} size={24} color="#777" />
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
@@ -59,6 +72,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -67,14 +85,24 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: '80%',
   },
+  inputWrapper: {
+    position: 'relative',
+    marginBottom: 10,
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    marginBottom: 10,
     fontSize: 16,
+    width: '100%',
+  },
+  eyeIconContainer: {
+    position: 'absolute',
+    right: 10,
+    top: '50%',
+    transform: [{ translateY: -12 }],
   },
   loginButton: {
     backgroundColor: '#007bff',
