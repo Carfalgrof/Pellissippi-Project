@@ -2,31 +2,37 @@ import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
+//hooks for allowing values to be updated on screen
+//the useState hook allows the app to rerender something when an event happens
 export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  //function is called when login button it pressed
   function handleLogin() {
     // Implement login functionality here
     console.log('Logging in with email:', email, 'and password:', password);
   };  
-
+ // this looks different but this is just another way to do a function it works just like the one above but is called when forgot email is clicked
   const handleForgotEmail = () => {
     Alert.alert('Forgot Email', 'Please contact support for assistance with your email.');
     console.log('Forgot Email', 'Please contact support for assistance with your email.');
 
   };
-
+  //see above
   const handleForgotPassword = () => {
     Alert.alert('Forgot Password', 'Please check your email for instructions on resetting your password.');
     console.log('Forgot Password', 'Please check your email for instructions on resetting your password.');
 
   };
 
-
+  //the <view></view> tags work just like <div></div> tags in html
+  //wrapping items in view tags and giving them a style make them easy to add style to
   return (
+    
     <View style={styles.container}>
+    
       <Image
         source={require('./assets/dog picture.png')}
         style={styles.image}
