@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import LoginPage from './Screens/LoginPage';
+import HomePage from './Screens/HomePage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -13,7 +15,7 @@ const App = () => {
     <NavigationContainer>
       
     <View style={styles.container}>
-      <LoginPage />
+      <HomePage />
     </View>
     </NavigationContainer>
   );
