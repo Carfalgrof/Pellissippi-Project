@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image, ScrollView } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image, ScrollView, FlatList } from 'react-native';
 
 export default function HomePage() {
 
@@ -16,10 +16,27 @@ export default function HomePage() {
         { name: 'job10', key: '10'},
     ]);
 
+
+    const pressHandler = (key) => {
+        console.log(key);
+    }
+
     return (
         <View style={styles.container}>
             
-            <ScrollView>
+            <FlatList 
+                data={job}
+                renderItem={({ item}) => (
+                    <TouchableOpacity onPress={() => pressHandler(item.key)}>
+                        <Text style={styles.item}>{item.name}</Text>
+
+                    </TouchableOpacity>
+
+                )}
+            />
+
+
+            {/* <ScrollView>
             { job.map((item) => {
                 return (
                     <View key={item.key}>
@@ -27,7 +44,9 @@ export default function HomePage() {
                     </View>
                 )
             })}
-            </ScrollView>
+            </ScrollView> */}
+
+
         </View>
     );
 
@@ -36,16 +55,20 @@ export default function HomePage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "pink",
         paddingTop: 40,
-        marginHorizontal: 20
+        paddingHorizontal: 20,
+        marginHorizontal: 20,
+        width: '95%'
 
     },
     item : {
         backgroundColor: 'yellow',
         marginTop: 24,
         padding: 30,
-        fontSize: 24
+        fontSize: 24,
+        textAlign: 'center',
+
 
     }
 })
