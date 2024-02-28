@@ -4,30 +4,37 @@ import LoginPage from './Screens/LoginPage';
 import HomePage from './Screens/HomePage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 
 
 const Tab = createBottomTabNavigator();
-const App = () => {
+//const App = () => {
   
-  return (
+//   return (
 
-    <NavigationContainer>
+//     <NavigationContainer>
       
-    <View style={styles.container}>
-      <HomePage />
-    </View>
+//     <View style={styles.container}>
+//       <HomePage />
+//     </View>
+//     </NavigationContainer>
+//   );
+// }
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="HomePage" component={HomePage} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;

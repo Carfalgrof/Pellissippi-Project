@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //hooks for allowing values to be updated on screen
 //the useState hook allows the app to rerender something when an event happens
-export default function LoginPage() {
+export default function LoginPage({ navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   //function is called when login button it pressed
-  function handleLogin() {
+  function handleLogin({}) {
     // Implement login functionality here
+    navigation.navigate('HomePage')
     console.log('Logging in with email:', email, 'and password:', password);
   };  
 
@@ -67,9 +70,12 @@ export default function LoginPage() {
             <FontAwesome name={showPassword ? 'eye-slash' : 'eye'} size={24} color="#777" />
           </TouchableOpacity>
         </View>
+
+
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.forgotButton} onPress={handleForgotEmail}>
           <Text style={styles.forgotButtonText}>Forgot Email</Text>
         </TouchableOpacity>
