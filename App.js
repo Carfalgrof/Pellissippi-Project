@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import LoginPage from './Screens/LoginPage';
+import HomePage from './Screens/HomePage';
+
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <LoginPage />
+      <HomePage />
     </View>
   );
 }
