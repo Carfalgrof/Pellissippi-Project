@@ -14,7 +14,7 @@ export default function LoginPage({ navigation}) {
   //function is called when login button it pressed
   function handleLogin({}) {
     // Implement login functionality here
-    navigation.navigate('HomePage')
+    navigation.navigate('Home')
     console.log('Logging in with email:', email, 'and password:', password);
   };  
 

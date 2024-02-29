@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image, ScrollView, FlatList } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image, ScrollView, FlatList, Button } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+//import UserProfile from './Screens/UserProfile';
+import { useNavigation } from '@react-navigation/native';
+
+
+
+
+
+
+
+const Tab = createBottomTabNavigator();
+
 
 export default function HomePage() {
+    const navigation = useNavigation();
 
     const [job, setJob] =useState([
         { name: 'job1', key: '1'},
@@ -22,8 +36,30 @@ export default function HomePage() {
     }
 
     return (
+        
         <View style={styles.container}>
-            
+            <View>
+    <Button
+        title="logout"
+        onPress={() => navigation.navigate('Login')}
+    />      
+    <Button
+        title="Go to Home"
+        onPress={() => navigation.navigate('Home')}
+    />
+      
+    <Button
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Profile')}
+    />
+    <Button
+        title="Go to Settings"
+        onPress={() => navigation.navigate('Settings')}
+    /> 
+    </View>
+
+
+
             <FlatList 
                 data={job}
                 renderItem={({ item}) => (
