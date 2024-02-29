@@ -4,6 +4,7 @@ import { View, Text, Button } from 'react-native';
 export default function UserProfile({navigation}) {
   return (
     <View>
+      <Text>have fun Owen!</Text>
       <Button
         title="Go to Home"
         onPress={() => navigation.navigate('Home')}
@@ -12,10 +13,10 @@ export default function UserProfile({navigation}) {
         title="Go to Profile"
         onPress={() => navigation.navigate('Profile')}
       />
-      <Button
+      {/* <Button
         title="Go to Settings"
         onPress={() => navigation.navigate('Settings')}
-      />
+      /> */}
     </View>
   );
 }
