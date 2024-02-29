@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import LoginPage from './Screens/LoginPage';
 import HomePage from './Screens/HomePage';
+import UserProfile from './Screens/UserProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -24,6 +25,7 @@ const Tab = createBottomTabNavigator();
 // }
 
 
+
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -31,7 +33,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={LoginPage} />
-        <Stack.Screen name="HomePage" component={HomePage} />
+        <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="Profile" component={UserProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
