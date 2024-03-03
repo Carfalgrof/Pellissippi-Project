@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         paddingHorizontal: 20,
         marginHorizontal: 20,
-        width: '95%'
+        //width: '95%'
 
     },
     item : {
