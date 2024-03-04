@@ -3,7 +3,7 @@ import HomePage from '../Screens/HomePage';
 import LoginPage from '../Screens/LoginPage';
 import UserProfile from '../Screens/UserProfile';
 import SearchPage from '../Screens/SearchPage';
-
+import HistoryPage from '../Screens/HistoryPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
@@ -50,6 +50,14 @@ const Tabs = () => {
                         color={focused ? 'red' : 'black'} />)
             
             }} />
+            <Tab.Screen name="History" component={HistoryPage} options={{
+                tabBarIcon: ({ focused }) => (
+                    <Feather 
+                        name={'dollar-sign'}
+                        size={25}
+                        color={focused ? 'red' : 'black'} />)
+            
+            }} />
             <Tab.Screen name="Logout" component={LoginPage} options={{
                 tabBarIcon: ({ focused }) => (
                     <Feather 
@@ -58,6 +66,7 @@ const Tabs = () => {
                         color={focused ? 'red' : 'black'} />)
             
             }} />
+            
         </Tab.Navigator>
     //</NavigationContainer>
   );
