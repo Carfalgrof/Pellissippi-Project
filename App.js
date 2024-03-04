@@ -1,18 +1,12 @@
 import React from 'react';
-
-import { View, StyleSheet } from 'react-native';
-import LoginPage from './Screens/LoginPage';
-import HomePage from './Screens/HomePage';
-import UserProfile from './Screens/UserProfile';
-import SearchPage from './Screens/SearchPage';
-
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './Tabs/BottomTab';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginPage from './Screens/LoginPage';
 
-
-
+/*
+/If you want to add a page to navigation, go the the tabs folder and go to bottomTab.js
+/you also don't need to import the page here, just add it to the bottomTab.js file
+*/
 
 //const App = () => {
   
@@ -40,16 +34,11 @@ function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginPage} />
-        <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="Profile" component={UserProfile} />
-        <Stack.Screen name="Search" component={SearchPage} />
-      </Stack.Navigator>
+      
 
       
       <Tabs />
-      navigation.jumpTo('Login');
+      
       
 
     </NavigationContainer>
