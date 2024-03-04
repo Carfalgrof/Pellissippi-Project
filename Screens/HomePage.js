@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image, ScrollView, FlatList, Button } from 'react-native';
+import { Animated, StatusBar, StyleSheet, Text, View , TextInput, TouchableOpacity, Alert, Image, ScrollView, FlatList, Button } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 //import UserProfile from './Screens/UserProfile';
 import { useNavigation } from '@react-navigation/native';
-
+import { LinearGradient } from "expo-linear-gradient";
 const Tab = createBottomTabNavigator();
 
 export default function HomePage() {
@@ -27,8 +27,10 @@ export default function HomePage() {
         console.log(key);
     }
 
+    
     return (
-        
+        <LinearGradient colors={['red','yellow', 'green','blue', 'purple']} style={styles.linearGradient}>
+
         <View style={styles.container}>
             {/* <View>
     <Button
@@ -58,25 +60,32 @@ export default function HomePage() {
                 )}
             />
         </View>
+        </LinearGradient>
     );
 
 }
 
 const styles = StyleSheet.create({
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 5
+      },
     container: {
         flex: 1,
-        backgroundColor: "pink",
+        //backgroundColor: "pink",
         paddingTop: 10,
         paddingHorizontal: 20,
         marginHorizontal: 20,
 
     },
     item : {
-        backgroundColor: 'yellow',
         marginTop: 24,
         padding: 30,
         fontSize: 24,
         textAlign: 'center',
+        backgroundColor: "yellow",
 
     }
 })
