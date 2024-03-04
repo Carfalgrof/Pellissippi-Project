@@ -52,10 +52,10 @@ export default function HomePage() {
         title="Go to Profile"
         onPress={() => navigation.navigate('Profile')}
     />
-    {/* <Button
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
-    />  */}
+    <Button
+        title="Go to Search"
+        onPress={() => navigation.navigate('Search')}
+    />  
     </View>
 
 
