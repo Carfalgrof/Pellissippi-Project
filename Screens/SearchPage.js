@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Picker, CheckBox, Switch, Button, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Picker, CheckBox, Switch, Button, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 const SearchPage = () => {
   const [zipcode, setZipcode] = useState('');
@@ -45,8 +45,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Time</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={time}
+          onChangeText={setTime}
           placeholder="Enter Time"
         />
       </View>
@@ -54,8 +54,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Job Role</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={jobRole}
+          onChangeText={setJobRole}
           placeholder="Enter Job Role"
         />
       </View>
@@ -63,8 +63,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Shift Duration</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={shiftDuration}
+          onChangeText={setShiftDuration}
           placeholder="Enter Shift Duration"
         />
       </View>
@@ -72,8 +72,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Restaurant Type</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={restaurantType}
+          onChangeText={setRestaurantType}
           placeholder="Enter Restaurant Type"
         />
       </View>
@@ -81,8 +81,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Experience Level</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={experienceLevel}
+          onChangeText={setExperienceLevel}
           placeholder="Enter Experience Level"
         />
       </View>
@@ -90,8 +90,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Shift Status</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={shiftStatus}
+          onChangeText={setShiftStatus}
           placeholder="Enter Shift Status"
         />
       </View>
@@ -99,8 +99,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Languages</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={languages}
+          onChangeText={setLanguages}
           placeholder="Enter Languages"
         />
       </View>
@@ -108,8 +108,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Certifications</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={certifications}
+          onChangeText={setCertifications}
           placeholder="Enter Certifications"
         />
       </View>
@@ -117,8 +117,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Special Requirements</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={specialRequirements}
+          onChangeText={setSpecialRequirements}
           placeholder="Enter Special Requirements"
         />
       </View>
@@ -126,8 +126,8 @@ const SearchPage = () => {
         <Text style={styles.label}>Shift Frequency</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={shiftFrequency}
+          onChangeText={setShiftFrequency}
           placeholder="Enter Shift Frequency"
         />
       </View>
@@ -140,12 +140,14 @@ const SearchPage = () => {
         <Text style={styles.label}>Pay</Text>
         <TextInput
           style={styles.input}
-          value={date}
-          onChangeText={setDate}
+          value={pay}
+          onChangeText={setPay}
           placeholder="Enter Pay"
         />
       </View>
-      <Button title="Search" onPress={handleSearch} />
+      <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+          <Text style={styles.searchButtonText}>Search</Text>
+        </TouchableOpacity>
     </ScrollView>
   );
 };
@@ -153,8 +155,21 @@ const SearchPage = () => {
 export default SearchPage;
 
 const styles = StyleSheet.create({
+  searchButton: {
+    backgroundColor: '#007bff',
+    borderRadius: 5,
+    paddingVertical: 10,
+    alignItems: 'center',
+    marginBottom: 50,
+  },
+  searchButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   container: {
     padding: 20,
+
   },
   inputContainer: {
     marginBottom: 20,
