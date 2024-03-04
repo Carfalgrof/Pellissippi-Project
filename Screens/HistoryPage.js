@@ -3,7 +3,9 @@ import { ScrollView, View, Text, TextInput, Picker, CheckBox, Switch, Button, St
 import moment from 'moment-timezone';
 
 const HistoryPage = () => {
+  
   const [incomeType, setIncomeType] = useState('daily');
+
   const [shifts, setShifts] = useState([
     { id: 1, date: moment.tz('2023-11-05', 'UTC'), hoursWorked: 8, moneyEarned: 100 },
     { id: 2, date: moment.tz('2023-11-17', 'UTC'), hoursWorked: 7, moneyEarned: 100 },
@@ -24,6 +26,7 @@ const HistoryPage = () => {
 
   ]);
 
+  //handler for button clicks to update what income type is
   const handleIncomeTypeChange = (type) => {
     setIncomeType(type);
   };
@@ -34,9 +37,14 @@ const HistoryPage = () => {
 
     if (incomeType === 'daily') {
       totalIncome = calculateDailyIncome(currentDate);
+
     } else if (incomeType === 'weekly') {
+      console.log('Current Date:', currentDate.format('YYYY-MM-DD 1')); // Add for debugging
+
       const lastSunday = getPreviousSunday(currentDate);
       totalIncome = calculateWeeklyIncome(lastSunday, currentDate);
+      console.log('Current Date:', currentDate.format('YYYY-MM-DD 2')); // Add for debugging
+
     } else if (incomeType === 'monthly') {
       const monthStart = moment().tz('UTC').startOf('month');
       const monthShifts = shifts.filter((shift) => shift.date.isBetween(monthStart, currentDate, null, '[]'));
@@ -47,7 +55,7 @@ const HistoryPage = () => {
       totalIncome = yearShifts.reduce((acc, shift) => acc + shift.moneyEarned, 0);
     }
 
-    console.log('Current Date:', currentDate.format('YYYY-MM-DD')); // Add for debugging
+    console.log('Current Date:', currentDate.format('YYYY-MM-DD 3')); // Add for debugging
     console.log('Total Income:', totalIncome); // Add for debugging
 
     return totalIncome;
@@ -63,15 +71,19 @@ const HistoryPage = () => {
   };
 
   const calculateWeeklyIncome = (weekStart, weekEnd) => {
-    const weekShifts = shifts.filter((shift) => shift.date.isBetween(weekStart, weekEnd, null, '[]'));
-    return weekShifts.reduce((acc, shift) => acc + shift.moneyEarned, 0);
+    const weekShifts = shifts.filter((shift) => shift.date.isBetween(weekStart, weekEnd, null, '[]') || shift.date.isSame(weekStart, 'day'));
+    const weeklyIncome = weekShifts.reduce((acc, shift) => acc + shift.moneyEarned, 0);
+    return weeklyIncome;
   };
+  
 
   const getPreviousSunday = (date) => {
-    const day = date.day(); // Get the current day of the week (0-6)
-    const daysToSubtract = day === 0 ? 7 : day; // If it's Sunday, subtract 7 days
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    const lastSunday = new Date(today.getTime() - (dayOfWeek * 24 * 60 * 60 * 1000));
+    console.log(lastSunday); // Add for debugging
 
-    return date.subtract(daysToSubtract, 'days').startOf('day'); // Subtract days and use startOf('day')
+    return lastSunday;
   };
 
   const totalIncome = calculateIncome();
