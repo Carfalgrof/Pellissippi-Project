@@ -5,14 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 //import UserProfile from './Screens/UserProfile';
 import { useNavigation } from '@react-navigation/native';
 
-
-
-
-
-
-
 const Tab = createBottomTabNavigator();
-
 
 export default function HomePage() {
     const navigation = useNavigation();
@@ -30,7 +23,6 @@ export default function HomePage() {
         { name: 'job10', key: '10'},
     ]);
 
-
     const pressHandler = (key) => {
         console.log(key);
     }
@@ -38,7 +30,7 @@ export default function HomePage() {
     return (
         
         <View style={styles.container}>
-            <View>
+            {/* <View>
     <Button
         title="logout"
         onPress={() => navigation.navigate('LoginPage')}
@@ -56,33 +48,15 @@ export default function HomePage() {
         title="Go to Search"
         onPress={() => navigation.navigate('Search')}
     />  
-    </View>
-
-
-
+    </View> */}
             <FlatList 
                 data={job}
                 renderItem={({ item}) => (
                     <TouchableOpacity onPress={() => pressHandler(item.key)}>
                         <Text style={styles.item}>{item.name}</Text>
-
                     </TouchableOpacity>
-
                 )}
             />
-
-
-            {/* <ScrollView>
-            { job.map((item) => {
-                return (
-                    <View key={item.key}>
-                        <Text style={styles.item}>{item.name}</Text>
-                    </View>
-                )
-            })}
-            </ScrollView> */}
-
-
         </View>
     );
 
@@ -92,10 +66,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "pink",
-        paddingTop: 40,
+        paddingTop: 10,
         paddingHorizontal: 20,
         marginHorizontal: 20,
-        //width: '95%'
 
     },
     item : {
@@ -104,7 +77,6 @@ const styles = StyleSheet.create({
         padding: 30,
         fontSize: 24,
         textAlign: 'center',
-
 
     }
 })
