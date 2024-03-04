@@ -4,6 +4,7 @@ import UserProfile from '../Screens/UserProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
+import LoginPage from '../Screens/LoginPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +31,7 @@ const Tabs = () => {
                         color={focused ? 'red' : 'black'} />)
             
             }} />
+            <Tab.Screen name ="Login" component={LoginPage} />
         </Tab.Navigator>
     //</NavigationContainer>
   );

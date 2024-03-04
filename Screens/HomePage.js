@@ -41,7 +41,7 @@ export default function HomePage() {
             <View>
     <Button
         title="logout"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('LoginPage')}
     />      
     <Button
         title="Go to Home"

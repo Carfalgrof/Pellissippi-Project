@@ -34,7 +34,7 @@ function App() {
     <NavigationContainer>
       
       <Tabs />
-      
+      navigation.jumpTo('Login');
       
     </NavigationContainer>
     
