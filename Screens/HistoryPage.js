@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
   incomeValue: {
     fontSize: 24,
     marginBottom: 10,
+    color: 'green',
   },
   incomeButtons: {
     flexDirection: 'row',
