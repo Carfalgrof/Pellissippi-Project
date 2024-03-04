@@ -41,7 +41,7 @@ export default function HomePage() {
             <View>
     <Button
         title="logout"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('LoginPage')}
     />      
     <Button
         title="Go to Home"
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         paddingHorizontal: 20,
         marginHorizontal: 20,
-        width: '95%'
+        //width: '95%'
 
     },
     item : {
