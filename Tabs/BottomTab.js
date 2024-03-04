@@ -6,6 +6,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import LoginPage from '../Screens/LoginPage';
 
+
+/*
+/In order to see whatever new screen you're working on, you need to add it here.
+/Import the screen at the top of the file, then add it down below.
+/If you google feather icons in react native, you can find a list of icons to use if you want to be special :)
+/or here's the link: https://icons.expo.fyi/Index
+*/
+
+
+
+
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
