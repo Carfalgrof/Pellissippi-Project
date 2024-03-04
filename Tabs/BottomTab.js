@@ -22,7 +22,9 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     //<NavigationContainer>
+
         <Tab.Navigator 
+        initialRouteName="Logout"
         screenOptions={{
             tabBarActiveTintColor: 'red',
             tabBarInactiveTintColor: 'gray'
