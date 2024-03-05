@@ -30,6 +30,7 @@ const Tabs = () => {
             tabBarInactiveTintColor: 'gray'
         }}>
             <Tab.Screen name="Home" component={HomePage} options={{
+                headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Feather 
                         name={'home'}
@@ -37,6 +38,7 @@ const Tabs = () => {
                         color={focused ? 'red' : 'black'} />)
             }}/>
             <Tab.Screen name="Profile" component={UserProfile} options={{
+                headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Feather 
                         name={'user'}
@@ -45,6 +47,7 @@ const Tabs = () => {
             
             }} />
             <Tab.Screen name="Search" component={SearchPage} options={{
+                headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Feather 
                         name={'search'}
@@ -53,6 +56,7 @@ const Tabs = () => {
             
             }} />
             <Tab.Screen name="History" component={HistoryPage} options={{
+                headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Feather 
                         name={'dollar-sign'}
@@ -61,6 +65,7 @@ const Tabs = () => {
             
             }} />
             <Tab.Screen name="Logout" component={LoginPage} options={{
+                headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Feather 
                         name={'log-out'}
