@@ -134,40 +134,62 @@ const SearchPage = () => {
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Job Role</Text>
-        <TextInput
+        <Picker
           style={styles.input}
-          value={jobRole}
-          onChangeText={setJobRole}
-          placeholder="Enter Job Role"
-        />
+          selectedValue={jobRole}
+          onValueChange={(itemValue) => setJobRole(itemValue)}
+        >
+          <Picker.Item label="Select Job Role" value="" />
+          <Picker.Item label="Role 1" value="Role 1" />
+          <Picker.Item label="Role 2" value="Role 2" />
+          <Picker.Item label="Role 3" value="Role 3" />
+        </Picker>
       </View>
+
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Shift Duration</Text>
-        <TextInput
-          style={styles.input}
-          value={shiftDuration}
-          onChangeText={setShiftDuration}
-          placeholder="Enter Shift Duration"
-        />
-      </View>
+  <Text style={styles.label}>Shift Duration</Text>
+  <Picker
+    style={styles.input}
+    selectedValue={shiftDuration}
+    onValueChange={(itemValue) => setShiftDuration(itemValue)}
+  >
+    <Picker.Item label="Select Shift Duration" value="" />
+    {[...Array(12).keys()].map((value) => (
+      <Picker.Item key={value} label={`${value + 1}`} value={`${value + 1}`} />
+    ))}
+  </Picker>
+</View>
+
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Restaurant Type</Text>
-        <TextInput
+        <Picker
           style={styles.input}
-          value={restaurantType}
-          onChangeText={setRestaurantType}
-          placeholder="Enter Restaurant Type"
-        />
+          selectedValue={restaurantType}
+          onValueChange={(itemValue) => setRestaurantType(itemValue)}
+        >
+          <Picker.Item label="Select Restaurant Type" value="" />
+          <Picker.Item label="Type 1" value="Type 1" />
+          <Picker.Item label="Type 2" value="Type 2" />
+          <Picker.Item label="Type 3" value="Type 3" />
+        </Picker>
       </View>
+
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Experience Level</Text>
-        <TextInput
-          style={styles.input}
-          value={experienceLevel}
-          onChangeText={setExperienceLevel}
-          placeholder="Enter Experience Level"
-        />
-      </View>
+  <Text style={styles.label}>Experience Level</Text>
+  <Picker
+    style={styles.input}
+    selectedValue={experienceLevel}
+    onValueChange={(itemValue) => setExperienceLevel(itemValue)}
+  >
+    <Picker.Item label="Select Experience Level" value="" />
+    <Picker.Item label="Level 1" value="Level 1" />
+    <Picker.Item label="Level 2" value="Level 2" />
+    <Picker.Item label="Level 3" value="Level 3" />
+  </Picker>
+</View>
+
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Shift Status</Text>
         <TextInput
@@ -177,6 +199,7 @@ const SearchPage = () => {
           placeholder="Enter Shift Status"
         />
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Languages</Text>
         <TextInput
@@ -186,6 +209,7 @@ const SearchPage = () => {
           placeholder="Enter Languages"
         />
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Certifications</Text>
         <TextInput
@@ -195,6 +219,7 @@ const SearchPage = () => {
           placeholder="Enter Certifications"
         />
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Special Requirements</Text>
         <TextInput
@@ -204,6 +229,7 @@ const SearchPage = () => {
           placeholder="Enter Special Requirements"
         />
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Shift Frequency</Text>
         <TextInput
@@ -213,6 +239,7 @@ const SearchPage = () => {
           placeholder="Enter Shift Frequency"
         />
       </View>
+
       <Text>Tip Sharing</Text>
       <Switch
         value={tipSharing}
@@ -227,6 +254,7 @@ const SearchPage = () => {
           placeholder="Enter Pay"
         />
       </View>
+
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
           <Text style={styles.searchButtonText}>Search</Text>
         </TouchableOpacity>
