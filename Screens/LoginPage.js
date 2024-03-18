@@ -82,9 +82,6 @@ export default function LoginPage({ navigation}) {
         <TouchableOpacity style={styles.forgotButton} onPress={handleForgotPassword}>
           <Text style={styles.forgotButtonText}>Forgot Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.profileButton} onPress={goToProfileForNow}>
-          <Text style={styles.profileButtonText}>Go to the profile page Owen is working on :)</Text>
-        </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
     </View>
