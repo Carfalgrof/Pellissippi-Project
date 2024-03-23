@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity, FlatList, Modal } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function HomePage() {
@@ -25,20 +25,31 @@ export default function HomePage() {
         const generatedJobs = [];
         for (let i = 1; i <= 10; i++) {
             generatedJobs.push({
-                name: `job${i}`,
+                name: `Job${i}`,
                 key: `${i}`,
                 restaurant: `Restaurant ${String.fromCharCode(64 + i)}`,
-                pay: `$${10 + i}/hr`,
-                distance: `${i * i} miles`,
-                datetime: `March ${i}, 2024, ${8 + i}:00 AM`
+                pay: `Pay: $${10 + i}/hr`,
+                distance: `Distance from you: ${i * i} miles`,
+                datetime: `When: March ${i}, 2024, ${8 + i}:00 AM`,
+                desc: 'Description of shift: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             });
         }
         return generatedJobs;
     }
 
+    const regenerateJobs = () => {
+        setJobs(generateJobs());
+    };
+
     return (
-        <LinearGradient colors={['red', 'yellow', 'green', 'blue', 'purple']} style={styles.linearGradient}>
+        // <LinearGradient colors={['red', 'yellow', 'green', 'blue', 'purple']} style={styles.linearGradient}>
             <View style={styles.container}>
+                <TouchableOpacity onPress={regenerateJobs} style={styles.button}>
+                <Text style={styles.buttonText}>Regenerate Jobs</Text>
+            </TouchableOpacity>
+                
+                
+                
                 <FlatList
                     data={jobs}
                     renderItem={({ item }) => (
@@ -48,6 +59,7 @@ export default function HomePage() {
                             <Text>{item.pay}</Text>
                             <Text>{item.distance}</Text>
                             <Text>{item.datetime}</Text>
+                            
                             <TouchableOpacity onPress={() => favoriteHandler(item.key)} style={styles.favoriteButton}>
                                 <Text style={styles.favoriteButtonText}>Favorite</Text>
                             </TouchableOpacity>
@@ -65,10 +77,17 @@ export default function HomePage() {
                     <View style={styles.modalView}>
                     <View style={styles.modalContent}>
                         <Text style={styles.jobName}>{selectedJob?.name}</Text>
+                        <Image
+                            source={require('../assets/rest_icon.png')}
+                            style={styles.image}
+                        />
                         <Text>{selectedJob?.restaurant}</Text>
                         <Text>{selectedJob?.pay}</Text>
                         <Text>{selectedJob?.distance}</Text>
                         <Text>{selectedJob?.datetime}</Text>
+                        <Text></Text>
+                        <Text>{selectedJob?.desc}</Text>
+                        <Text>testing text</Text>
                         <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
                             <Text style={styles.closeButtonText}>Close</Text>
                         </TouchableOpacity>
@@ -81,35 +100,40 @@ export default function HomePage() {
                     </View>
                 </Modal>
             </View>
-        </LinearGradient>
+        // </LinearGradient>
     );
 }
 
 const styles = StyleSheet.create({
-    linearGradient: {
-        flex: 1,
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 5
-    },
+    // linearGradient: {
+    //     flex: 1,
+    //     paddingLeft: 15,
+    //     paddingRight: 15,
+    //     borderRadius: 5
+    // },
     container: {
         flex: 1,
         paddingTop: 10,
         paddingHorizontal: 20,
         marginHorizontal: 20,
     },
+    image: {
+        width: 200, // Set the desired width
+        height: 200, // Set the desired height
+    },
     item: {
         marginTop: 24,
         padding: 30,
         fontSize: 24,
         textAlign: 'center',
-        backgroundColor: "#8C9427",
+        backgroundColor: "orange",
         position: 'relative', // Added to position the favorite button
         borderRadius: 20,
     },
     jobName: {
         fontWeight: 'bold',
         marginBottom: 10,
+        fontSize: 18,
     },
     favoriteButton: {
         position: 'absolute',
@@ -138,7 +162,7 @@ const styles = StyleSheet.create({
         elevation: 5, // Add elevation for Android shadow
     },
     closeButton: {
-        backgroundColor: '#8C9427',
+        backgroundColor: 'orange',
         padding: 10,
         borderRadius: 5,
         marginTop: 20,
@@ -148,7 +172,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     applyButton: {
-        backgroundColor: '#4287f5',
+        backgroundColor: 'orange',
         padding: 10,
         borderRadius: 5,
         marginTop: 20,

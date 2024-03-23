@@ -26,7 +26,7 @@ const Tabs = () => {
         <Tab.Navigator 
         initialRouteName="Logout"
         screenOptions={{
-            tabBarActiveTintColor: 'red',
+            tabBarActiveTintColor: 'blue',
             tabBarInactiveTintColor: 'gray'
         }}>
             <Tab.Screen name="Home" component={HomePage} options={{
@@ -35,7 +35,7 @@ const Tabs = () => {
                     <Feather 
                         name={'home'}
                         size={25}
-                        color={focused ? 'red' : 'black'} />)
+                        color={focused ? 'orange' : 'black'} />)
             }}/>
             <Tab.Screen name="Profile" component={UserProfile} options={{
                 headerShown: false,
@@ -43,7 +43,7 @@ const Tabs = () => {
                     <Feather 
                         name={'user'}
                         size={25}
-                        color={focused ? 'red' : 'black'} />)
+                        color={focused ? 'orange' : 'black'} />)
             
             }} />
             <Tab.Screen name="Search" component={SearchPage} options={{
@@ -52,7 +52,7 @@ const Tabs = () => {
                     <Feather 
                         name={'search'}
                         size={25}
-                        color={focused ? 'red' : 'black'} />)
+                        color={focused ? 'orange' : 'black'} />)
             
             }} />
             <Tab.Screen name="History" component={HistoryPage} options={{
@@ -61,7 +61,7 @@ const Tabs = () => {
                     <Feather 
                         name={'dollar-sign'}
                         size={25}
-                        color={focused ? 'red' : 'black'} />)
+                        color={focused ? 'orange' : 'black'} />)
             
             }} />
             <Tab.Screen name="Logout" component={LoginPage} options={{
@@ -70,7 +70,7 @@ const Tabs = () => {
                     <Feather 
                         name={'log-out'}
                         size={25}
-                        color={focused ? 'red' : 'black'} />)
+                        color={focused ? 'orange' : 'black'} />)
             
             }} />
             

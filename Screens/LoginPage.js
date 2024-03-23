@@ -98,12 +98,13 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-    marginBottom: 20,
+    marginBottom: 40,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#007bff',
   },
   inputContainer: {
     width: '80%',
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     transform: [{ translateY: -12 }],
   },
   loginButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: 'orange',
     borderRadius: 5,
     paddingVertical: 10,
     alignItems: 'center',
