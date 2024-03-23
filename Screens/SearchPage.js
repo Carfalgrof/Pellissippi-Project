@@ -147,18 +147,18 @@ const SearchPage = () => {
       </View>
 
       <View style={styles.inputContainer}>
-  <Text style={styles.label}>Shift Duration</Text>
-  <Picker
-    style={styles.input}
-    selectedValue={shiftDuration}
-    onValueChange={(itemValue) => setShiftDuration(itemValue)}
-  >
-    <Picker.Item label="Select Shift Duration" value="" />
-    {[...Array(12).keys()].map((value) => (
-      <Picker.Item key={value} label={`${value + 1}`} value={`${value + 1}`} />
-    ))}
-  </Picker>
-</View>
+        <Text style={styles.label}>Shift Duration</Text>
+        <Picker
+          style={styles.input}
+          selectedValue={shiftDuration}
+          onValueChange={(itemValue) => setShiftDuration(itemValue)}
+        >
+          <Picker.Item label="Select Shift Duration" value="" />
+          {[...Array(12).keys()].map((value) => (
+            <Picker.Item key={value} label={`${value + 1}`} value={`${value + 1}`} />
+          ))}
+        </Picker>
+      </View>
 
 
       <View style={styles.inputContainer}>
@@ -176,18 +176,18 @@ const SearchPage = () => {
       </View>
 
       <View style={styles.inputContainer}>
-  <Text style={styles.label}>Experience Level</Text>
-  <Picker
-    style={styles.input}
-    selectedValue={experienceLevel}
-    onValueChange={(itemValue) => setExperienceLevel(itemValue)}
-  >
-    <Picker.Item label="Select Experience Level" value="" />
-    <Picker.Item label="Level 1" value="Level 1" />
-    <Picker.Item label="Level 2" value="Level 2" />
-    <Picker.Item label="Level 3" value="Level 3" />
-  </Picker>
-</View>
+        <Text style={styles.label}>Experience Level</Text>
+        <Picker
+          style={styles.input}
+          selectedValue={experienceLevel}
+          onValueChange={(itemValue) => setExperienceLevel(itemValue)}
+        >
+          <Picker.Item label="Select Experience Level" value="" />
+          <Picker.Item label="Level 1" value="Level 1" />
+          <Picker.Item label="Level 2" value="Level 2" />
+          <Picker.Item label="Level 3" value="Level 3" />
+        </Picker>
+      </View>
 
 
       <View style={styles.inputContainer}>
@@ -266,7 +266,7 @@ export default SearchPage;
 
 const styles = StyleSheet.create({
   searchButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: 'orange',
     borderRadius: 5,
     paddingVertical: 10,
     alignItems: 'center',

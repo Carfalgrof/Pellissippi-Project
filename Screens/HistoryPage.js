@@ -82,10 +82,10 @@ const HistoryPage = () => {
         <Text style={styles.incomeLabel}>Total Income</Text>
         <Text style={styles.incomeValue}>${totalIncome}</Text>
         <View style={styles.incomeButtons}>
-          <Button title="Daily" onPress={() => handleIncomeTypeChange('daily')} />
-          <Button title="Weekly" onPress={() => handleIncomeTypeChange('weekly')} />
-          <Button title="Monthly" onPress={() => handleIncomeTypeChange('monthly')} />
-          <Button title="Yearly" onPress={() => handleIncomeTypeChange('yearly')} />
+          <Button color="orange" title="Daily" onPress={() => handleIncomeTypeChange('daily')} />
+          <Button color="orange" title="Weekly" onPress={() => handleIncomeTypeChange('weekly')} />
+          <Button color="orange" title="Monthly" onPress={() => handleIncomeTypeChange('monthly')} />
+          <Button color="orange" title="Yearly" onPress={() => handleIncomeTypeChange('yearly')} />
         </View>
       </View>
       {shifts.map((shift) => (
@@ -119,6 +119,8 @@ const styles = StyleSheet.create({
   incomeButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    color: 'orange',
+
   },
   shiftContainer: {
     borderWidth: 1,
